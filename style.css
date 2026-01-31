@@ -67,7 +67,7 @@ body {
 }
 
 .small {
-  font-size: 17px;
+  font-size: clamp(13px, 3.6vw, 17px);
   line-height: 1.6;
 }
 
@@ -126,26 +126,6 @@ body {
 .program li:last-child {
   border-bottom: none;
 }
-/* ===== 曲説明の展開 ===== */
-.song-detail {
-  max-height: 0;
-  overflow: hidden;
-  transition:
-    max-height 0.4s ease,
-    opacity 0.3s ease;
-  opacity: 0;
-
-  margin-top: 0;
-  padding: 0 4px;
-  font-size: 14px;
-  line-height: 1.7;
-}
-
-.song.open .song-detail {
-  max-height: 200px; /* 説明が長ければ増やす */
-  opacity: 0.9;
-  margin-top: 10px;
-}
 
 /* ↪︎ ボタン */
 .toggle {
@@ -154,6 +134,8 @@ body {
   color: #fff;
   font-size: 16px;
   cursor: pointer;
+  padding: 8px;
+  min-width: 36px;
 }
 
 /* ===== 曲説明カード ===== */
@@ -196,10 +178,6 @@ body {
   padding: 14px 20px;
   transform: translateY(0);
   pointer-events: auto;
-}
-
-.hidden {
-  display: none;
 }
 
 /* ===== モーダル共通 ===== */
@@ -259,6 +237,8 @@ body {
   margin-top: 12px;
   overflow-y: auto;
   max-height: 60vh;
+  
+  -webkit-overflow-scrolling: touch;
 }
 
 .member {
@@ -359,10 +339,6 @@ body {
   opacity: 0.85;
 }
 
-.hidden {
-  display: none !important;
-}
-
 .modal,
 .modal * {
   pointer-events: auto;
@@ -389,9 +365,26 @@ body {
   font-size:clamp(22px,7vw,40px)
 }
 
-.search-form input,
-.search-form select{
-  font-size:16px;
-  transform:scale(1);
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 28px;
+  }
+
+  .program li {
+    font-size: 16px;
+  }
+
+  .tab {
+    font-size: 13px;
+  }
 }
 
+.hidden {
+  display: none !important;
+}
+
+.song-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
