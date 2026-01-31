@@ -1,0 +1,380 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #000;
+  color: #fff;
+  font-family: "Times New Roman", "Yu Mincho", serif;
+}
+
+/* ===== ナビ ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  font-size: 14px;
+}
+
+.nav-left span {
+  margin-right: 16px;
+}
+
+.icon {
+  border: 1px solid #fff;
+  border-radius: 50%;
+  padding: 2px 7px;
+}
+
+.search-box {
+  background: #eee;
+  color: #000;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #444;
+  margin: 0;
+}
+
+/* ===== ヒーロー ===== */
+.hero {
+  position: relative;
+}
+
+.hero img {
+  width: 100%;
+  display: block;
+  opacity: 0.8;
+  filter: brightness(0.75) contrast(1.05);
+}
+
+.hero-text {
+  position: absolute;
+  bottom: 20px;
+  left: 16px;
+}
+
+.hero-text h1 {
+  font-size: 40px;
+  letter-spacing: 0.15em;
+  margin: 10px 0;
+}
+
+.small {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ===== タブ ===== */
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 10px;
+}
+
+.tab {
+  width: 45%;
+  padding: 14px 0;
+  background: #555;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.tab.active {
+  position: relative;
+}
+
+.tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: 6px;
+  left: 15%;
+  width: 70%;
+  height: 3px;
+  background: red;
+}
+
+/* ===== プログラム ===== */
+.program {
+  background: #666;
+  margin: 0 12px 40px;
+  border-radius: 24px;
+  padding: 10px 0;
+}
+
+.program ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.program li {
+  padding: 18px 20px;
+  border-bottom: 1px solid #555;
+  justify-content: space-between;
+  font-size: 18px;
+}
+
+.program li:last-child {
+  border-bottom: none;
+}
+/* ===== 曲説明の展開 ===== */
+.song-detail {
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.4s ease,
+    opacity 0.3s ease;
+  opacity: 0;
+
+  margin-top: 0;
+  padding: 0 4px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.song.open .song-detail {
+  max-height: 200px; /* 説明が長ければ増やす */
+  opacity: 0.9;
+  margin-top: 10px;
+}
+
+/* ↪︎ ボタン */
+.toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* ===== 曲説明カード ===== */
+.song-detail {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+
+  margin-top: 0;
+  padding: 0 20px;
+
+  font-size: 14px;
+  line-height: 1.8;
+  color: #eaeaea;
+
+  background: linear-gradient(
+    to right,
+    rgba(40, 40, 40, 0.95),
+    rgba(20, 20, 20, 0.85)
+  );
+
+  border-left: 4px solid #c33;
+  border-radius: 10px;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+
+  transform: translateY(-8px);
+  transition:
+    max-height 0.45s ease,
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    margin-top 0.35s ease;
+}
+
+/* 開いた状態 */
+.song.open .song-detail {
+  max-height: 200px; /* 説明が長ければ増やす */
+  opacity: 1;
+  margin-top: 14px;
+  padding: 14px 20px;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ===== モーダル共通 ===== */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal:not(.hidden) {
+  display: flex;
+}
+
+.modal-content {
+  width: 90%;
+  max-width: 420px;
+  max-height: 80vh;
+  background: linear-gradient(to bottom, #2b2b2b, #1a1a1a);
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+}
+
+/* ===== ヘッダー ===== */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #444;
+  padding-bottom: 10px;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* ===== メンバー一覧 ===== */
+.member-list {
+  margin-top: 12px;
+  overflow-y: auto;
+  max-height: 60vh;
+}
+
+.member {
+  padding: 10px 6px;
+  border-bottom: 1px solid #333;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+
+.member:last-child {
+  border-bottom: none;
+}
+
+/* ===== 学年グループ ===== */
+.grade-group {
+  margin-bottom: 18px;
+}
+
+/* 学年タイトル */
+.grade-title {
+  position: sticky;
+  top: 0;
+
+  background: linear-gradient(
+    to right,
+    rgba(60, 60, 60, 0.95),
+    rgba(30, 30, 30, 0.95)
+  );
+
+  padding: 8px 12px;
+  margin-bottom: 6px;
+
+  font-size: 15px;
+  letter-spacing: 0.2em;
+  font-weight: bold;
+
+  border-left: 4px solid #c33;
+  border-radius: 6px;
+
+  z-index: 1;
+}
+
+/* ===== 学年ジャンプ ===== */
+.grade-nav {
+  display: flex;
+  justify-content: space-around;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.grade-nav button {
+  flex: 1;
+  padding: 8px 0;
+
+  background: #444;
+  border: none;
+  border-radius: 14px;
+
+  color: #fff;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+}
+
+.grade-nav button:hover {
+  background: #666;
+}
+
+/* ===== メンバー検索 ===== */
+#currentMemberIndicator {
+  background: #111;
+  color: #fff;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  border-left: 4px solid #e60033;
+}
+
+.hero-text h1 {
+  transition: all 0.3s ease;
+}
+
+.hero-text .small {
+  opacity: 0.9;
+}
+
+.search-box {
+  background: #eee;
+  color: #000;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+}
+
+.search-box:hover {
+  opacity: 0.85;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.modal,
+.modal * {
+  pointer-events: auto;
+}
+
+/* ===== MEMBERモーダル モード切替 ===== */
+.member-mode .grade-nav,
+.member-mode .grade-title {
+  display: block;
+}
+
+.song-mode .grade-nav,
+.song-mode .grade-title {
+  display: none;
+}
