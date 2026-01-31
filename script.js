@@ -142,7 +142,7 @@ function runSearch() {
     const text = member.textContent;
 
     const ok =
-      (!grade || text.startsWith(grade)) &&
+      (!grade || text.charAt(0) === grade) &&
       (!cls || text.includes(cls + "組")) &&
       (!name || text.includes(name));
 
@@ -160,7 +160,7 @@ function runSearch() {
   el.addEventListener("input", runSearch),
 );
 
-resultsBox.addEventListener("click", (e) => {
+resultsBox.addEventListener("click", e => {
   const item = e.target.closest(".search-result");
   if (!item) return;
 
@@ -183,7 +183,7 @@ resultsBox.addEventListener("click", (e) => {
   }
 
   // 曲フィルタ
-  document.querySelectorAll(".song").forEach((song) => {
+  document.querySelectorAll(".song").forEach(song => {
     song.style.display = songs.includes(song.dataset.song) ? "block" : "none";
   });
 
@@ -233,3 +233,4 @@ document.querySelectorAll(".grade-nav button").forEach((btn) => {
     }
   });
 });
+
