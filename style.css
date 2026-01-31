@@ -61,13 +61,13 @@ body {
 }
 
 .hero-text h1 {
-  font-size: 50px;
+  font-size: 45px;
   letter-spacing: 0.15em;
   margin: 10px 0;
 }
 
 .small {
-  font-size: 20px;
+  font-size: 17px;
   line-height: 1.6;
 }
 
@@ -394,3 +394,4 @@ body {
   font-size:16px;
   transform:scale(1);
 }
+
