@@ -89,17 +89,34 @@ memberBtn.addEventListener("click", () => {
 ================================ */
 document.querySelectorAll(".member").forEach((member) => {
   member.addEventListener("click", () => {
-    const songs = member.dataset.songs.split(" ");
-    const name = member.textContent;
 
+    const songs = member.dataset.songs.split(" ");
+    const name = member.textContent.trim();
+
+    // ===== 学年判定（←ここ重要！）=====
+    const grade = name.charAt(0);
+
+    const noMsg = document.getElementById("noAppearanceMsg");
+
+    if (grade === "1" || grade === "2") {
+      noMsg.classList.remove("hidden");
+    } else {
+      noMsg.classList.add("hidden");
+    }
+
+    // ===== 曲フィルタ =====
     document.querySelectorAll(".song").forEach((song) => {
-      song.style.display = songs.includes(song.dataset.song) ? "block" : "none";
+      song.style.display =
+        songs.includes(song.dataset.song) ? "block" : "none";
     });
 
     closeMemberModal();
 
+    // ヒーロー書き換え
     document.getElementById("heroTitle").textContent = name;
-    document.getElementById("hellow").innerHTML = "▶ この部員の出演曲を表示中";
+    document.getElementById("hellow").innerHTML =
+      "▶ この部員の出演曲を表示中";
+      updateStar(name);
   });
 });
 
@@ -206,18 +223,22 @@ if (grade === "1" || grade === "2") {
 });
 
 /* ===============================
-   HOME
+   HOME（修正版）
 ================================ */
-const homeBtn = document.querySelector(".nav-left span:nth-child(2)");
 
-homeBtn.addEventListener("click", () => {
+document.getElementById("homeBtn").addEventListener("click", () => {
+
   document.querySelector('[data-target="graduation11"]').style.display = "";
+
   document.querySelectorAll(".song").forEach((song) => {
     song.style.display = "block";
   });
 
   document.getElementById("hellow").textContent = "The 6th Annual Concert of";
   document.getElementById("heroTitle").textContent = "SHIENRAKU";
+  
+  updateStar("SHIENRAKU");
+  
   document.getElementById("heroSub").innerHTML = `
     The Japanese Drum Club<br>
     of Kyushu Sangyo High School.
@@ -244,3 +265,107 @@ document.querySelectorAll(".grade-nav button").forEach((btn) => {
     }
   });
 });
+
+/* ===============================
+   HISTORY 切り替え（最終安全版）
+================================ */
+
+// 要素取得（存在チェックつき）
+const historyBtn = document.getElementById("historyBtn");
+const homeBtn    = document.getElementById("homeBtn");
+
+const hero     = document.querySelector(".hero");
+const tabsArea = document.querySelector(".tabs");
+const program  = document.querySelector(".program");
+const history  = document.getElementById("historySection");
+
+console.log("診断:", {
+  historyBtn, homeBtn, hero, tabsArea, program, history
+});
+
+// ===== HISTORYを開く =====
+if (historyBtn) {
+  historyBtn.addEventListener("click", () => {
+    hero.classList.add("hidden");
+    tabsArea.classList.add("hidden");
+    program.classList.add("hidden");
+
+    history.classList.remove("hidden");
+  });
+}
+
+// ===== HOMEで戻る =====
+if (homeBtn) {
+  homeBtn.addEventListener("click", () => {
+    history.classList.add("hidden");
+
+    hero.classList.remove("hidden");
+    tabsArea.classList.remove("hidden");
+    program.classList.remove("hidden");
+    
+    // --- ① 第2部を元通り表示 ---
+  document.querySelector('[data-target="graduation11"]').style.display = "";
+
+  // --- ② すべての曲を表示 ---
+  document.querySelectorAll(".song").forEach((song) => {
+    song.style.display = "block";
+  });
+
+  // --- ★★★ ここが今回の本命 ★★★ ---
+  const noMsg = document.getElementById("noAppearanceMsg");
+  if (noMsg) {
+    noMsg.classList.add("hidden");   // メッセージを消す！
+  }
+  // --- ★★★ ここまで ★★★ ---
+
+  // --- ③ ヒーロー表示を初期に戻す ---
+  document.getElementById("hellow").textContent =
+    "The 6th Annual Concert of";
+
+  document.getElementById("heroTitle").textContent =
+    "SHIENRAKU";
+
+  document.getElementById("heroSub").innerHTML = `
+    The Japanese Drum Club<br>
+    of Kyushu Sangyo High School.`;
+    
+    updateStar("SHIENRAKU");
+  });
+}
+
+// ===== ポリシー表示 =====
+document.getElementById("openPolicy").onclick = () =>
+  document.getElementById("policyModal").classList.remove("hidden");
+
+document.getElementById("closePolicy").onclick = () =>
+  document.getElementById("policyModal").classList.add("hidden");
+
+// ===== 利用規約 =====
+document.getElementById("openTerms").onclick = () =>
+  document.getElementById("termsModal").classList.remove("hidden");
+
+document.getElementById("closeTerms").onclick = () =>
+  document.getElementById("termsModal").classList.add("hidden");
+  
+  document.querySelectorAll(".slider").forEach(slider => {
+
+  const dots = slider.nextElementSibling;
+
+  [...slider.children].forEach((_, i) => {
+    const d = document.createElement("span");
+    if (i === 0) d.className = "active";
+    dots.appendChild(d);
+  });
+
+  slider.addEventListener("scroll", () => {
+    const index = Math.round(
+      slider.scrollLeft / slider.clientWidth
+    );
+
+    dots.querySelectorAll("span").forEach((d,i) =>
+      d.classList.toggle("active", i === index)
+    );
+  });
+
+});
+
