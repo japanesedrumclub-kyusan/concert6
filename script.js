@@ -29,10 +29,18 @@ function setupSongToggle() {
     if (!toggle) return;
 
     toggle.onclick = (e) => {
-      e.stopPropagation();
-      songs.forEach((s) => s.classList.remove("open"));
-      song.classList.toggle("open");
-    };
+  e.stopPropagation();
+
+  const isOpen = song.classList.contains("open");
+
+  // いったん全部閉じる
+  songs.forEach((s) => s.classList.remove("open"));
+
+  // もともと閉じてた場合だけ開く
+  if (!isOpen) {
+    song.classList.add("open");
+  }
+};
   });
 }
 setupSongToggle();
@@ -347,25 +355,65 @@ document.getElementById("openTerms").onclick = () =>
 document.getElementById("closeTerms").onclick = () =>
   document.getElementById("termsModal").classList.add("hidden");
   
-  document.querySelectorAll(".slider").forEach(slider => {
+/* ===============================
+   OPENING（ボタン式）
+================================ */
 
-  const dots = slider.nextElementSibling;
+document.addEventListener("DOMContentLoaded", () => {
 
-  [...slider.children].forEach((_, i) => {
-    const d = document.createElement("span");
-    if (i === 0) d.className = "active";
-    dots.appendChild(d);
+  const opening = document.getElementById("opening");
+  const openingImage = document.getElementById("openingImage");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const helpBtn = document.querySelector(".icon");
+
+  if (!opening) return;
+
+  const slides = ["https://i.postimg.cc/d1z39Yng/IMG-0029.jpg", "https://i.postimg.cc/15S5RMTP/IMG-0027.jpg", "https://i.postimg.cc/k48qqtvC/IMG-0030.jpg", "https://i.postimg.cc/1XshS7zd/IMG-0031.jpg"];
+  let current = 0;
+
+  function updateSlide() {
+    openingImage.src = slides[current];
+
+    prevBtn.style.visibility =
+      current === 0 ? "hidden" : "visible";
+
+    nextBtn.textContent =
+      current === slides.length - 1
+        ? "ホームへ"
+        : "次へ →";
+  }
+
+  prevBtn.addEventListener("click", () => {
+    if (current > 0) {
+      current--;
+      updateSlide();
+    }
   });
 
-  slider.addEventListener("scroll", () => {
-    const index = Math.round(
-      slider.scrollLeft / slider.clientWidth
-    );
-
-    dots.querySelectorAll("span").forEach((d,i) =>
-      d.classList.toggle("active", i === index)
-    );
+  nextBtn.addEventListener("click", () => {
+    if (current < slides.length - 1) {
+      current++;
+      updateSlide();
+    } else {
+      opening.classList.add("hidden");
+      localStorage.setItem("visited", "true");
+    }
   });
 
+  // 初回だけ表示
+  if (!localStorage.getItem("visited")) {
+    opening.classList.remove("hidden");
+  }
+
+  // ?ボタンで再表示
+  if (helpBtn) {
+    helpBtn.addEventListener("click", () => {
+      opening.classList.remove("hidden");
+      current = 0;
+      updateSlide();
+    });
+  }
+
+  updateSlide();
 });
-
