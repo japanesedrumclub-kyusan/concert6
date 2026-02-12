@@ -1,328 +1,336 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <!-- ===== 基本設定 ===== -->
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1,viewport-fit=cover"
-    />
+<head>
+  <!-- ===== 基本設定 ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,viewport-fit=cover">
 
-    <!-- ===== タイトル・説明（SEO） ===== -->
-    <title>和太鼓部 定期演奏会 | SHIENRAKU</title>
-    <meta
-      name="description"
-      content="九州産業高校和太鼓部 第6回定期演奏会。演目・出演者・部員一覧を掲載。"
-    />
+  <!-- ===== タイトル・説明（SEO） ===== -->
+  <title>和太鼓部 定期演奏会 | SHIENRAKU</title>
+  <meta name="description" content="九州産業高校和太鼓部 第6回定期演奏会。演目・出演者・部員一覧を掲載。">
 
-    <!-- ===== OGP（検索・SNS表示最適化） ===== -->
-    <meta property="og:title" content="和太鼓部 定期演奏会 | SHIENRAKU" />
-    <meta
-      property="og:description"
-      content="九州産業高校和太鼓部 第6回定期演奏会"
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="ja_JP" />
+  <!-- ===== OGP（検索・SNS表示最適化） ===== -->
+  <meta property="og:title" content="和太鼓部 定期演奏会 | SHIENRAKU">
+  <meta property="og:description" content="九州産業高校和太鼓部 第6回定期演奏会">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
 
-    <!-- ===== モバイル最適化 ===== -->
-    <meta name="theme-color" content="#000000" />
+  <!-- ===== モバイル最適化 ===== -->
+  <meta name="theme-color" content="#000000">
 
-    <!-- ===== スタイル ===== -->
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- ===== ヘッダー ===== -->
-    <header class="header">
-      <div class="nav-left">
-        <span class="icon">?</span>
-        <span id="homeBtn">HOME</span>
-        <span id="memberBtn">MEMBER</span>
-        <span id="historyBtn">HISTORY</span>
-      </div>
-      <button class="search-box" id="searchBtn">Search🔍</button>
-    </header>
-    <hr class="divider" />
+  <!-- ===== スタイル ===== -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    <!-- ===== ヒーロー ===== -->
-    <section class="hero">
-      <img src="https://i.postimg.cc/vDFVy5V1/IMG-2911.jpg" alt="演奏写真" />
-      <div class="hero-text">
-        <div class="small" id="hellow">The 6th Annual Concert of</div>
-        <h1 id="heroTitle">SHIENRAKU</h1>
-        <div class="small" id="heroSub">
-          The Japanese Drum Club<br />
-          of Kyushu Sangyo High School.
-        </div>
-      </div>
-    </section>
-    <!-- ===== タブ ===== -->
-    <div class="tabs">
-      <button class="tab active" data-target="concert6">
-        第１部；第6回定期演奏会
-      </button>
-      <button class="tab" data-target="graduation11">
-        第２部；11代目卒業LIVE
-      </button>
+  <!-- ===== ヘッダー ===== -->
+  <header class="header">
+    <div class="nav-left">
+      <span class="icon" id="helpBtn">?</span>
+      <span id="homeBtn">HOME</span>
+      <span id="memberBtn">MEMBER</span>
+      <span id="historyBtn">HISTORY</span>
     </div>
+    <button class="search-box" id="searchBtn">Search🔍</button>
+  </header>
+  <hr class="divider" />
 
-    <!-- ===== プログラム ===== -->
-    <div class="program">
-      <!-- 第6回定期演奏会 -->
-      <ul class="program-list" id="concert6">
-        <li class="song" data-song="zankyo">
-          <div class="song-header">
-            <span class="song-title">1.残響</span>
-            <button class="toggle">↪︎</button>
-          </div>
-          <div class="song-detail">曲説明<br /></div>
-        </li>
+  <!-- ===== ヒーロー ===== -->
+  <section class="hero">
+    <img src="https://i.postimg.cc/vDFVy5V1/IMG-2911.jpg" alt="演奏写真">
+    <div class="hero-text">
+      <div class="small" id="hellow">The 6th Annual Concert of</div>
+      <h1 id="heroTitle">SHIENRAKU</h1>
+      <div class="small" id="heroSub">
+        The Japanese Drum Club<br>
+        of Kyushu Sangyo High School.
+      </div>
+    </div>
+  </section>
+  <!-- ===== タブ ===== -->
+  <div class="tabs">
+    <button class="tab active" data-target="concert6">第１部；第6回定期演奏会</button>
+    <button class="tab" data-target="graduation11">第２部；11代目卒業LIVE</button>
+  </div>
 
-        <li class="song" data-song="sairei">
-          <div class="song-header">
-            <span class="song-title">⒉祭礼</span>
-            <button class="toggle">↪︎</button>
-          </div>
-          <div class="song-detail">この曲は、祭りの明るい雰囲気から激しく熱い祭りへと変化する様を表現しています。<br />
-            楽しくもあり、泥臭く打ち込む様子をぜひご覧ください。</div>
-        </li>
+  <!-- ===== プログラム ===== -->
+  <div class="program">
 
-        <li class="song" data-song="uijin">
-          <div class="song-header">
-            <span class="song-title">⒊初陣</span>
-            <button class="toggle">↪︎</button>
-          </div>
-          <div class="song-detail">この曲は、和太鼓部に入って一番最初に覚える曲です。
-            日々努力を重ねてきた１年生による若々しい演奏をお楽しみください。<br /></div>
-        </li>
+    <!-- 第6回定期演奏会 -->
+    <ul class="program-list" id="concert6">
 
-        <li class="song" data-song="rindou">
-          <div class="song-header">
-            <span class="song-title">⒋臨道</span>
-            <button class="toggle">↪︎</button>
-          </div>
-          <div class="song-detail">この曲は、入部後２つ目に覚える曲です。曲の終盤にはクロス打ちというものがあります。<br />
+      <li class="song" data-song="zankyo">
+        <div class="song-header">
+          <span class="song-title">1.残響</span>
+          <button class="toggle">↪︎</button>
+        </div>
+        <div class="song-detail">
+          曲説明<br>
+        </div>
+      </li>
+
+      <li class="song" data-song="sairei">
+        <div class="song-header">
+          <span class="song-title">⒉祭礼</span>
+          <button class="toggle">↪︎</button>
+        </div>
+        <div class="song-detail">この曲は、祭りの明るい雰囲気から激しく熱い祭りへと変化する様を表現しています。<br />
+        楽しくもあり、泥臭く打ち込む様子をぜひご覧ください。</div>
+      </li>
+
+      <li class="song" data-song="uijin">
+        <div class="song-header">
+          <span class="song-title">⒊初陣</span>
+          <button class="toggle">↪︎</button>
+        </div>
+        <div class="song-detail">この曲は、和太鼓部に入って一番最初に覚える曲です。
+            日々努力を重ねてきた１年生による若々しい演奏をお楽しみください。</div>
+      </li>
+      
+      <li class="song" data-song="rindou">
+        <div class="song-header">
+          <span class="song-title">⒋臨道</span>
+          <button class="toggle">↪︎</button>
+        </div>
+        <div class="song-detail">この曲は、入部後２つ目に覚える曲です。曲の終盤にはクロス打ちというものがあります。<br />
             なかなか慣れない動きが多く覚えるのに苦戦しましたが、勢いのある曲となっているのでクロス打ちに注目してご覧ください。</div>
-        </li>
+      </li>
 
-        <li class="song" data-song="sainosai">
-          <div class="song-header">
-            <span class="song-title">⒌祭ノ祭</span>
-            <button class="toggle">↪︎</button>
-          </div>
-          <div class="song-detail">この曲は、太鼓のみではなく篠笛や銅鑼、チャッパと呼ばれる和楽器などを取り入れた曲です。<br />
+      <li class="song" data-song="sainosai">
+        <div class="song-header">
+          <span class="song-title">⒌祭ノ祭</span>
+          <button class="toggle">↪︎</button>
+        </div>
+        <div class="song-detail">この曲は、太鼓のみではなく篠笛や銅鑼、チャッパと呼ばれる和楽器などを取り入れた曲です。<br />
             読んで字のごとくお祭りのように楽しい曲となっております。皆さんも一緒に手拍子をしてお楽しみください。</div>
-        </li>
+      </li>
 
-        <li class="song" data-song="kyoran">
-          <div class="song-header">
-            <span class="song-title">⒍華嵐</span>
-            <button class="toggle">↪︎</button>
-          </div>
-          <div class="song-detail">曲説明<br /></div>
-        </li>
-
-        <li class="song" data-song="ikko">
-          <div class="song-header">
-            <span class="song-title">⒎一鼓</span>
-            <button class="toggle">↪︎</button>
-          </div>
-          <div class="song-detail">曲説明<br /></div>
-        </li>
-
-        <li class="song" data-song="gotenreppa">
-          <div class="song-header">
-            <span class="song-title">⒏轟天裂破</span>
-            <button class="toggle">↪︎</button>
-          </div>
-          <div class="song-detail">曲説明<br /></div>
-        </li>
-
-        <li class="song" data-song="shienraku">
-          <div class="song-header">
-            <span class="song-title">⒐紫焔楽</span>
-            <button class="toggle">↪︎</button>
-          </div>
-          <div class="song-detail">この曲は、約６分間ある少し長い曲となっておりますが、元々は約８分間あった５代目の大会曲の短縮ver.です。<br />
+      <li class="song" data-song="kyoran">
+        <div class="song-header">
+          <span class="song-title">⒍華嵐</span>
+          <button class="toggle">↪︎</button>
+        </div>
+        <div class="song-detail">
+          この曲は、第26回ジュニアコンクール大会にて演奏された曲です。<br>
+          
+        </div>
+      </li>
+      
+            <li class="song" data-song="ikko">
+        <div class="song-header">
+          <span class="song-title">⒎一鼓</span>
+          <button class="toggle">↪︎</button>
+        </div>
+        <div class="song-detail">
+          この曲は、第26回ジュニアコンクール大会にて演奏された曲です。<br>
+        </div>
+      </li>
+      
+            <li class="song" data-song="gotenreppa">
+        <div class="song-header">
+          <span class="song-title">⒏轟天裂破</span>
+          <button class="toggle">↪︎</button>
+        </div>
+        <div class="song-detail">
+          この曲は、第26回ジュニアコンクール大会にて演奏された曲です。<br>
+        </div>
+      </li>
+      
+      <li class="song" data-song="shienraku">
+        <div class="song-header">
+          <span class="song-title">⒐紫焔楽</span>
+          <button class="toggle">↪︎</button>
+        </div>
+        <div class="song-detail">この曲は、約６分間ある少し長い曲となっておりますが、元々は約８分間あった５代目の大会曲の短縮ver.です。<br />
             曲の途中には口上というセリフを言うタイミングがあり、全員が声を張り上げ心を一つにしてセリフを読み上げます。
             その勇ましい声と表情に注目してお聞きください。</div>
-        </li>
-
-        <li class="song" data-song="irodori">
-          <div class="song-header">
-            <span class="song-title">10.百心一花</span>
-            <button class="toggle">↪︎</button>
-          </div>
-          <div class="song-detail">この曲は、女子を中心とした曲となっております。太鼓の力強さ、しなやかさ、強弱のついた演奏が見どころとなっております。<br />
-            ぜひその繊細で力強い演奏をお楽しみください。</div>
-        </li>
-
-        <li class="song" data-song="shidare">
-          <div class="song-header">
-            <span class="song-title">11.紫打流</span>
-            <button class="toggle">↪︎</button>
-          </div>
-          <div class="song-detail">この曲は、外部コーチである晃太郎先生のチームである「和太鼓 たぎり」の楽曲です。<br />
-            締太鼓を主として編成された曲となっており、素早いリズムと細かいツブ打ちでのかけあいにぜひ注目してください。</div>
-        </li>
-
-        <li class="song" data-song="hotobashiru">
-          <div class="song-header">
-            <span class="song-title">12.躍</span>
-            <button class="toggle">↪︎</button>
-          </div>
-          <div class="song-detail">この曲は、佐渡島を拠点に活動する「太鼓芸能集団 鼓童」のおこなっている楽曲提供プロジェクトにて公開されている楽曲です。<br />
-            担ぎ太鼓で編成された曲となっており、とても盛り上がる楽しい曲となっております。躍動するような演奏をお楽しみください。</div>
-        </li>
-
-        <li class="song" data-song="fujinraijin">
-          <div class="song-header">
-            <span class="song-title">13.風神雷神</span>
-            <button class="toggle">↪︎</button>
-          </div>
-          <div class="song-detail">この曲は、男子を中心とした曲となっております。風神と雷神がぶつかり合っているかのような熱い演奏が見どころです。<br />
-            曲の終盤にはクロス打ちがあります。一人ひとりの表情と荒々しくもあり繊細な演奏に注目してご覧ください。</div>
-        </li>
-
-        <li class="song" data-song="sankyu">
-          <div class="song-header">
-            <span class="song-title">14.3月9日(篠笛)</span>
-            <button class="toggle">↪︎</button>
-          </div>
-          <div class="song-detail">曲説明<br /></div>
-        </li>
-
-        <li class="song" data-song="shonomai">
-          <div class="song-header">
-            <span class="song-title">15.笑ノ舞</span>
-            <button class="toggle">↪︎</button>
-          </div>
-          <div class="song-detail">この曲は、曲名に入っている通り、笑顔あふれる曲となっております。手拍子をして一緒に盛り上がってくれると嬉しいです。<br />
-            踊るかのように演奏する２,３年生の演奏をお楽しみください。</div>
-        </li>
-      </ul>
-
-      <!-- 11代目卒業LIVE -->
-      <ul class="program-list hidden" id="graduation11">
-        <div
-          id="noAppearanceMsg"
-          class="hidden"
-          style="padding: 20px; text-align: center; opacity: 0.9"
-        >
-          この部員は第2部「11代目卒業LIVE」への出演はありません
+      </li>
+      
+      <li class="song" data-song="irodori">
+        <div class="song-header">
+          <span class="song-title">10.百心一花</span>
+          <button class="toggle">↪︎</button>
         </div>
+        <div class="song-detail">この曲は、女子を中心とした曲となっております。太鼓の力強さ、しなやかさ、強弱のついた演奏が見どころとなっております。<br />
+            ぜひその繊細で力強い演奏をお楽しみください。</div>
+      </li>
+      
+      <li class="song" data-song="shidare">
+        <div class="song-header">
+          <span class="song-title">11.紫打流</span>
+          <button class="toggle">↪︎</button>
+        </div>
+        <div class="song-detail">この曲は、外部コーチである晃太郎先生のチームである「和太鼓 たぎり」の楽曲です。<br />
+            締太鼓を主として編成された曲となっており、素早いリズムと細かいツブ打ちでのかけあいにぜひ注目してください。</div>
+      </li>
+      
+      <li class="song" data-song="hotobashiru">
+        <div class="song-header">
+          <span class="song-title">12.躍</span>
+          <button class="toggle">↪︎</button>
+        </div>
+        <div class="song-detail">この曲は、佐渡島を拠点に活動する「太鼓芸能集団 鼓童」のおこなっている楽曲提供プロジェクトにて公開されている楽曲です。<br />
+            担ぎ太鼓で編成された曲となっており、とても盛り上がる楽しい曲となっております。躍動するような演奏をお楽しみください。</div>
+      </li>
+      
+      <li class="song" data-song="fujinraijin">
+        <div class="song-header">
+          <span class="song-title">13.風神雷神</span>
+          <button class="toggle">↪︎</button>
+        </div>
+        <div class="song-detail">この曲は、男子を中心とした曲となっております。風神と雷神がぶつかり合っているかのような熱い演奏が見どころです。<br />
+            曲の終盤にはクロス打ちがあります。一人ひとりの表情と荒々しくもあり繊細な演奏に注目してご覧ください。</div>
+      </li>
+      
+      <li class="song" data-song="sankyu">
+        <div class="song-header">
+          <span class="song-title">14.3月9日(篠笛)</span>
+          <button class="toggle">↪︎</button>
+        </div>
+        <div class="song-detail">
+          曲説明<br>
+        </div>
+      </li>
+      
+      <li class="song" data-song="shonomai">
+        <div class="song-header">
+          <span class="song-title">15.笑ノ舞</span>
+          <button class="toggle">↪︎</button>
+        </div>
+        <div class="song-detail">この曲は、曲名に入っている通り、笑顔あふれる曲となっております。手拍子をして一緒に盛り上がってくれると嬉しいです。<br />
+            踊るかのように演奏する２,３年生の演奏をお楽しみください。</div>
+      </li>
+    </ul>
+      
+    <!-- 11代目卒業LIVE -->
+    <ul class="program-list hidden" id="graduation11">
+    
+      <div id="noAppearanceMsg" class="hidden"
+       style="padding:20px; text-align:center; opacity:0.9;">
+    この部員は第2部「11代目卒業LIVE」への出演はありません
+  </div>
 
-        <li class="song" data-song="thunder">
-          <div class="song-header">
-            <span class="song-title">1.THUNDER</span>
-            <button class="toggle">↪︎</button>
-          </div>
-          <div class="song-detail">この曲は、大分県を拠点に活動している「ＤＲＵＭ ＴＡＯ」の楽曲です。雷のような迫力と自由奔放さを持つ楽曲です。<br />
+      <li class="song" data-song="thunder">
+        <div class="song-header">
+          <span class="song-title">1.THUNDER</span>
+          <button class="toggle">↪︎</button>
+        </div>
+        <div class="song-detail">この曲は、大分県を拠点に活動している「ＤＲＵＭ ＴＡＯ」の楽曲です。雷のような迫力と自由奔放さを持つ楽曲です。<br />
             ７人が自由で楽しく演奏する姿と音色に注目し、手拍子をしながら一緒に楽しんでください。</div>
-        </li>
+      </li>
 
-        <li class="song" data-song="miyabi">
-          <div class="song-header">
-            <span class="song-title">2.京雅</span>
-            <button class="toggle">↪︎</button>
-          </div>
-          <div class="song-detail">この曲は、１１代目チーム「京雅(みやび)」が第２５回ジュニアコンクール大会で演奏した楽曲です。<br />
+      <li class="song" data-song="miyabi">
+        <div class="song-header">
+          <span class="song-title">2.京雅</span>
+          <button class="toggle">↪︎</button>
+        </div>
+        <div class="song-detail">この曲は、１１代目チーム「京雅(みやび)」が第２５回ジュニアコンクール大会で演奏した楽曲です。<br />
             和を象徴とする箏から始まり、様々な太鼓の音色が重なり合って、だんだんと激しくなっていく迫力が見所です。</div>
         </li>
+      </li>
+      
+      <li class="song" data-song="gou">
+        <div class="song-header">
+          <span class="song-title">3.轟</span>
+          <button class="toggle">↪︎</button>
+        </div>
+        <div class="song-detail">この曲は、１１代目チーム「いろどり」が第２５回ジュニアコンクール大会で演奏した楽曲です。<br />
+      </li>
 
-        <li class="song" data-song="gou">
-          <div class="song-header">
-            <span class="song-title">3.轟</span>
-            <button class="toggle">↪︎</button>
-          </div>
-          <div class="song-detail">この曲は、１１代目チーム「いろどり」が第２５回ジュニアコンクール大会で演奏した楽曲です。<br />
-            </div>
-        </li>
-
-        <li class="song" data-song="ikusa">
-          <div class="song-header">
-            <span class="song-title">4.戦</span>
-            <button class="toggle">↪︎</button>
-          </div>
-          <div class="song-detail">この曲は、ほかの曲にはない腹筋太鼓を使う楽曲です。最初は静かに始まりますがだんだんと激しくなっていき、途中の腹筋太鼓からはさらに熱気のあふれる演奏となります。<br />
+<li class="song" data-song="ikusa">
+        <div class="song-header">
+          <span class="song-title">4.戦</span>
+          <button class="toggle">↪︎</button>
+        </div>
+        <div class="song-detail">この曲は、ほかの曲にはない腹筋太鼓を使う楽曲です。最初は静かに始まりますがだんだんと激しくなっていき、途中の腹筋太鼓からはさらに熱気のあふれる演奏となります。<br />
             きつい中声を出しながら一生懸命叩きます。その声と一生懸命さ、熱気に注目しながらご覧ください。</div>
         </li>
 
-        <li class="song" data-song="aya">
-          <div class="song-header">
-            <span class="song-title">5.綺</span>
-            <button class="toggle">↪︎</button>
-          </div>
-          <div class="song-detail">この曲は、１１代目チーム「綺(あや)」が第２５回ジュニアコンクール大会で演奏した楽曲です。
+      </li>
+      
+      <li class="song" data-song="aya">
+        <div class="song-header">
+          <span class="song-title">5.綺</span>
+          <button class="toggle">↪︎</button>
+        </div>
+        <div class="song-detail">この曲は、１１代目チーム「綺(あや)」が第２５回ジュニアコンクール大会で演奏した楽曲です。
             チーム名の「綺」には色々な模様で織りなす布という意味があります。このチーム名に由来し、個性を尊重しあったメンバーです。
             そんなメンバーで作ったポップな曲をどうぞご覧ください。</div>
-        </li>
-
-        <li class="song" data-song="seikai">
-          <div class="song-header">
-            <span class="song-title">6.正解(琴)</span>
-            <button class="toggle">↪︎</button>
-          </div>
-          <div class="song-detail">この曲は、RADWIMPSの「正解」という曲です。卒業ＬＩＶＥに向け１から自分たちで取り組みました。<br />
+      </li>
+      
+      <li class="song" data-song="seikai">
+        <div class="song-header">
+          <span class="song-title">6.正解(琴)</span>
+          <button class="toggle">↪︎</button>
+        </div>
+        <div class="song-detail">この曲は、RADWIMPSの「正解」という曲です。卒業ＬＩＶＥに向け１から自分たちで取り組みました。<br />
             一人ひとりが高校生活で歩んできた道のりを思い浮かべながら弾きます。ぜひ琴の美しい音色の四重奏をお楽しみください。</div>
-        </li>
-
-        <li class="song" data-song="three">
-          <div class="song-header">
-            <span class="song-title">7.3years(篠笛)</span>
-            <button class="toggle">↪︎</button>
-          </div>
-          <div class="song-detail">曲説明<br /></div>
-        </li>
-
-        <li class="song" data-song="ichigen">
-          <div class="song-header">
-            <span class="song-title">8.壱玄の和音</span>
-            <button class="toggle">↪︎</button>
-          </div>
-          <div class="song-detail">この曲は、１１代目が第39回福岡県高等学校総合文化祭郷土芸能部門福岡県大会にて演奏した曲です。<br />
+      </li>
+      
+      <li class="song" data-song="three">
+        <div class="song-header">
+          <span class="song-title">7.3years(篠笛)</span>
+          <button class="toggle">↪︎</button>
+        </div>
+        <div class="song-detail">
+          曲説明<br>
+        </div>
+      </li>
+      
+      <li class="song" data-song="ichigen">
+        <div class="song-header">
+          <span class="song-title">8.壱玄の和音</span>
+          <button class="toggle">↪︎</button>
+        </div>
+        <div class="song-detail">この曲は、１１代目が第39回福岡県高等学校総合文化祭郷土芸能部門福岡県大会にて演奏した曲です。<br />
             総勢４０名で演奏しており、外部コーチである晃太郎先生に作曲してもらった曲です。約8分間全力で演奏します。途中で重なる篠笛の音色
             にも注目してご覧ください。</div>
-        </li>
-
-        <li class="song" data-song="saisai">
-          <div class="song-header">
-            <span class="song-title">9.祭ノ祭</span>
-            <button class="toggle">↪︎</button>
-          </div>
-          <div class="song-detail">この曲は、太鼓のみではなく篠笛や銅鑼、チャッパと呼ばれる和楽器などを取り入れた曲です。<br />
+      </li>
+      
+      <li class="song" data-song="saisai">
+        <div class="song-header">
+          <span class="song-title">9.祭ノ祭</span>
+          <button class="toggle">↪︎</button>
+        </div>
+        <div class="song-detail">この曲は、太鼓のみではなく篠笛や銅鑼、チャッパと呼ばれる和楽器などを取り入れた曲です。<br />
             読んで字のごとくお祭りのように楽しい曲となっております。1部とは違い三年生のみの演奏です。皆さんも一緒に手拍子をしてお楽しみください。</div>
         </li>
-
-        <li class="song" data-song="gassai">
-          <div class="song-header">
-            <span class="song-title">10.合祭</span>
-            <button class="toggle">↪︎</button>
-          </div>
-          <div class="song-detail">この曲は、曲名に入っている通りお祭りのように楽しい楽曲です。身体を揺らしながら叩くので、
+      </li>
+      
+      <li class="song" data-song="gassai">
+        <div class="song-header">
+          <span class="song-title">10.合祭</span>
+          <button class="toggle">↪︎</button>
+        </div>
+        <div class="song-detail">この曲は、曲名に入っている通りお祭りのように楽しい楽曲です。身体を揺らしながら叩くので、
             見ている側も自然と心が躍るような曲です。<br />
             今回は卒業ＬＩＶＥver.ということで客席の間を太鼓を担いだ三年生が通ります。太鼓を身近に感じながら一緒に盛り上がってください。</div>
         </li>
-      </ul>
+      </li>
+    </ul>
+
+  </div>
+
+<!-- ===== MEMBER モーダル ===== -->
+<div id="memberModal" class="modal hidden">
+  <div class="modal-content">
+
+    <div class="modal-header">
+      <h2>部員一覧(総勢141名)</h2>
+      <button id="closeMember" class="close-btn">✕</button>
     </div>
+    
+<div class="grade-nav" id="gradeNav">
+  <button class="grade-btn" data-grade="3">3年(計70名)</button>
+  <button class="grade-btn" data-grade="2">2年(計43名)</button>
+  <button class="grade-btn" data-grade="1">1年(計29名)</button>
+</div>
 
-    <!-- ===== MEMBER モーダル ===== -->
-    <div id="memberModal" class="modal hidden">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2>部員一覧(総勢141名)</h2>
-          <button id="closeMember" class="close-btn">✕</button>
-        </div>
+    <div class="member-list">
 
-        <div class="grade-nav" id="gradeNav">
-          <button class="grade-btn" data-grade="3">3年(計70名)</button>
-          <button class="grade-btn" data-grade="2">2年(計43名)</button>
-          <button class="grade-btn" data-grade="1">1年(計29名)</button>
-        </div>
-
-        <div class="member-list">
-          <!-- 3年生 -->
-          <div id="grade3" class="grade-group" data-grade="3">
-            <div class="grade-title">三年生</div>
+  <!-- 3年生 -->
+  <div id="grade3" class="grade-group" data-grade="3">
+  <div class="grade-title">三年生</div>
 
             <div
               class="member clickable"
@@ -1335,53 +1343,57 @@
       </div>
     </div>
 
-    <div id="searchModal" class="modal hidden">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2>部員検索</h2>
-          <button id="closeSearch" class="close-btn">✕</button>
-        </div>
 
-        <div class="search-form">
-          <select id="searchGrade">
-            <option value="">学年</option>
-            <option value="3">3年</option>
-            <option value="2">2年</option>
-            <option value="1">1年</option>
-          </select>
+<div id="searchModal" class="modal hidden">
+  <div class="modal-content">
 
-          <select id="searchClass">
-            <option value="">組</option>
-            <option value="普1">普1組</option>
-            <option value="普2">普2組</option>
-            <option value="普3">普3組</option>
-            <option value="普4">普4組</option>
-            <option value="普5">普5組</option>
-            <option value="普6">普6組</option>
-            <option value="普7">普7組</option>
-            <option value="普8">普8組</option>
-            <option value="普9">普9組</option>
-            <option value="普10">普10組</option>
-            <option value="普11">普11組</option>
-            <option value="普12">普12組</option>
-            <option value="普13">普13組</option>
-            <option value="普14">普14組</option>
-            <option value="普15">普15組</option>
-            <option value="普16">普16組</option>
-            <option value="機1">機1組</option>
-            <option value="機2">機2組</option>
-            <option value="創1">創1組</option>
-            <option value="創2">創2組</option>
-            <option value="創3">創3組</option>
-          </select>
-          <input type="text" id="searchName" placeholder="名前（漢字）" />
-        </div>
-
-        <div id="searchResults" class="search-results"></div>
-      </div>
+    <div class="modal-header">
+      <h2>部員検索</h2>
+      <button id="closeSearch" class="close-btn">✕</button>
     </div>
 
-    <!-- ===== HISTORY ===== -->
+    <div class="search-form">
+      <select id="searchGrade">
+        <option value="">学年</option>
+        <option value="3">3年</option>
+        <option value="2">2年</option>
+        <option value="1">1年</option>
+      </select>
+
+     <select id="searchClass">
+  <option value="">組</option>
+  <option value="普1">普1組</option>
+  <option value="普2">普2組</option>
+  <option value="普3">普3組</option>
+  <option value="普4">普4組</option>
+  <option value="普5">普5組</option>
+  <option value="普6">普6組</option>
+  <option value="普7">普7組</option>
+  <option value="普8">普8組</option>
+  <option value="普9">普9組</option>
+  <option value="普10">普10組</option>
+  <option value="普11">普11組</option>
+  <option value="普12">普12組</option>
+  <option value="普13">普13組</option>
+  <option value="普14">普14組</option>
+  <option value="普15">普15組</option>
+  <option value="普16">普16組</option>
+  <option value="機1">機1組</option>
+  <option value="機2">機2組</option>
+  <option value="創1">創1組</option>
+  <option value="創2">創2組</option>
+  <option value="創3">創3組</option>
+</select>
+      <input type="text" id="searchName" placeholder="名前（漢字）">
+    </div>
+
+    <div id="searchResults" class="search-results"></div>
+
+  </div>
+</div>
+
+
+<!-- ===== HISTORY ===== -->
     <section id="historySection" class="hidden">
       <h2 class="history-title">HISTORY</h2>
 
@@ -1645,77 +1657,103 @@
       </div>
     </section>
 
-    <footer class="site-footer">
-      <div>© Kyushu Sangyo High School Japanese Drum Club</div>
 
-      <div class="footer-links">
-        <span id="openPolicy">プライバシーポリシー</span> |
-        <span id="openTerms">利用規約</span>
-      </div>
-    </footer>
+<footer class="site-footer">
+  <div>© Kyushu Sangyo High School Japanese Drum Club</div>
 
-    <!-- ポリシーモーダル -->
-    <div id="policyModal" class="modal hidden">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2>プライバシーポリシー</h2>
-          <button class="close-btn" id="closePolicy">✕</button>
-        </div>
+  <div class="footer-links">
+    <span id="openPolicy">プライバシーポリシー</span> |
+    <span id="openTerms">利用規約</span>
+  </div>
+</footer>
 
-        <div class="modal-body">
-          <p>
-            本サイトは、九州産業高校和太鼓部の演奏会情報を掲載する目的で運営されています。
-          </p>
-
-          <h4>1. 個人情報について</h4>
-          <p>
-            本サイトでは、利用者の個人情報を収集していません。<br />
-            検索機能は端末内で動作し、外部に情報を送信しません。
-          </p>
-
-          <h4>2. 掲載情報</h4>
-          <p>部員氏名等は、学校および本人の許可のもと掲載しています。</p>
-
-          <h4>3. アクセス解析</h4>
-          <p>アクセス解析ツールは使用していません。</p>
-
-          <h4>4. お問い合わせ</h4>
-          <p>掲載内容に関するお問い合わせは和太鼓部顧問までお願いします。</p>
-        </div>
-      </div>
+<!-- ポリシーモーダル -->
+<div id="policyModal" class="modal hidden">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>プライバシーポリシー</h2>
+      <button class="close-btn" id="closePolicy">✕</button>
     </div>
 
-    <!-- 利用規約モーダル -->
-    <div id="termsModal" class="modal hidden">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2>利用規約</h2>
-          <button class="close-btn" id="closeTerms">✕</button>
-        </div>
+    <div class="modal-body">
+      <p>
+        本サイトは、九州産業高校和太鼓部の演奏会情報を掲載する目的で運営されています。
+      </p>
 
-        <div class="modal-body">
-          <h4>1. 目的</h4>
-          <p>
-            本サイトは和太鼓部の活動紹介および演奏会案内を目的としています。
-          </p>
+      <h4>1. 個人情報について</h4>
+      <p>
+        本サイトでは、利用者の個人情報を収集していません。<br>
+        検索機能は端末内で動作し、外部に情報を送信しません。
+      </p>
 
-          <h4>2. 免責事項</h4>
-          <p>
-            掲載情報には十分注意していますが、内容の正確性を保証するものではありません。<br />
-            本サイトの利用によって生じた損害について責任を負いません。
-          </p>
+      <h4>2. 掲載情報</h4>
+      <p>
+        部員氏名等は、学校および本人の許可のもと掲載しています。
+      </p>
 
-          <h4>3. 著作権</h4>
-          <p>サイト内の文章・写真・デザインの無断転載を禁止します。</p>
+      <h4>3. アクセス解析</h4>
+      <p>
+        アクセス解析ツールは使用していません。
+      </p>
 
-          <h4>4. 内容の変更</h4>
-          <p>本サイトの内容は予告なく変更・削除されることがあります。</p>
-        </div>
-      </div>
+      <h4>4. お問い合わせ</h4>
+      <p>
+        掲載内容に関するお問い合わせは和太鼓部顧問までお願いします。
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- 利用規約モーダル -->
+<div id="termsModal" class="modal hidden">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>利用規約</h2>
+      <button class="close-btn" id="closeTerms">✕</button>
     </div>
 
-    <!-- ===== JS ===== -->
-    <script src="script.js"></script>
-  </body>
+    <div class="modal-body">
+      <h4>1. 目的</h4>
+      <p>
+        本サイトは和太鼓部の活動紹介および演奏会案内を目的としています。
+      </p>
+
+      <h4>2. 免責事項</h4>
+      <p>
+        掲載情報には十分注意していますが、内容の正確性を保証するものではありません。<br>
+        本サイトの利用によって生じた損害について責任を負いません。
+      </p>
+
+      <h4>3. 著作権</h4>
+      <p>
+        サイト内の文章・写真・デザインの無断転載を禁止します。
+      </p>
+
+      <h4>4. 内容の変更</h4>
+      <p>
+        本サイトの内容は予告なく変更・削除されることがあります。
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== OPENING ===== -->
+<div id="opening" class="opening hidden">
+  <div class="opening-box">
+
+    <img id="openingImage" src="https://i.postimg.cc/d1z39Yng/IMG-0029.jpg" alt="slide">
+
+    <div class="opening-controls">
+      <button id="prevBtn">← 戻る</button>
+      <button id="nextBtn">次へ →</button>
+    </div>
+
+  </div>
+</div>
+
+  <!-- ===== JS ===== -->
+  <script src="script.js"></script>
+  
+</body>
 </html>
-
