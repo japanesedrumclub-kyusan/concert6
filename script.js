@@ -417,3 +417,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateSlide();
 });
+
+const yearGalleryData = {
+  "2024": [
+    "img/2024_1.jpg",
+    "img/2024_2.jpg",
+    "img/2024_3.jpg",
+    "img/2024_4.jpg"
+  ],
+  "2025": [
+    "img/2025_1.jpg",
+    "img/2025_2.jpg"
+  ]
+};
+
+const yearModal = document.getElementById("yearGalleryModal");
+const yearBox = document.getElementById("yearGalleryImages");
+
+document.querySelectorAll(".year-gallery-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const year = btn.dataset.year;
+    yearBox.innerHTML = "";
+
+    yearGalleryData[year].forEach(src => {
+      const img = document.createElement("img");
+      img.src = src;
+      img.loading = "lazy";
+      yearBox.appendChild(img);
+    });
+
+    yearModal.classList.remove("hidden");
+  });
+});
+
+document.getElementById("closeYearGallery").onclick = () =>
+  yearModal.classList.add("hidden");
