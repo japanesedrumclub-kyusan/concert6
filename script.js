@@ -29,18 +29,18 @@ function setupSongToggle() {
     if (!toggle) return;
 
     toggle.onclick = (e) => {
-  e.stopPropagation();
+      e.stopPropagation();
 
-  const isOpen = song.classList.contains("open");
+      const isOpen = song.classList.contains("open");
 
-  // いったん全部閉じる
-  songs.forEach((s) => s.classList.remove("open"));
+      // いったん全部閉じる
+      songs.forEach((s) => s.classList.remove("open"));
 
-  // もともと閉じてた場合だけ開く
-  if (!isOpen) {
-    song.classList.add("open");
-  }
-};
+      // もともと閉じてた場合だけ開く
+      if (!isOpen) {
+        song.classList.add("open");
+      }
+    };
   });
 }
 setupSongToggle();
@@ -97,7 +97,6 @@ memberBtn.addEventListener("click", () => {
 ================================ */
 document.querySelectorAll(".member").forEach((member) => {
   member.addEventListener("click", () => {
-
     const songs = member.dataset.songs.split(" ");
     const name = member.textContent.trim();
 
@@ -114,17 +113,15 @@ document.querySelectorAll(".member").forEach((member) => {
 
     // ===== 曲フィルタ =====
     document.querySelectorAll(".song").forEach((song) => {
-      song.style.display =
-        songs.includes(song.dataset.song) ? "block" : "none";
+      song.style.display = songs.includes(song.dataset.song) ? "block" : "none";
     });
 
     closeMemberModal();
 
     // ヒーロー書き換え
     document.getElementById("heroTitle").textContent = name;
-    document.getElementById("hellow").innerHTML =
-      "▶ この部員の出演曲を表示中";
-      updateStar(name);
+    document.getElementById("hellow").innerHTML = "▶ この部員の出演曲を表示中";
+    updateStar(name);
   });
 });
 
@@ -166,12 +163,12 @@ function runSearch() {
   document.querySelectorAll(".member").forEach((member) => {
     const text = member.textContent;
 
-    const clean = text.trim();   // 先頭の見えないスペース対策
+    const clean = text.trim(); // 先頭の見えないスペース対策
 
-const ok =
-  (!grade || clean.startsWith(grade)) &&
-  (!cls || clean.includes(cls + "組")) &&
-  (!name || clean.includes(name));
+    const ok =
+      (!grade || clean.startsWith(grade)) &&
+      (!cls || clean.includes(cls + "組")) &&
+      (!name || clean.includes(name));
 
     if (ok) {
       const div = document.createElement("div");
@@ -187,12 +184,12 @@ const ok =
   el.addEventListener("input", runSearch),
 );
 
-resultsBox.addEventListener("click", e => {
+resultsBox.addEventListener("click", (e) => {
   const item = e.target.closest(".search-result");
   if (!item) return;
 
   const songs = item.dataset.songs.split(" ");
-  const text = item.textContent.trim();   // ← これ超大事
+  const text = item.textContent.trim(); // ← これ超大事
 
   searchModal.classList.add("hidden");
 
@@ -202,25 +199,20 @@ resultsBox.addEventListener("click", e => {
   const tab1 = document.querySelector('[data-target="concert6"]');
   const tab2 = document.querySelector('[data-target="graduation11"]');
 
-// ===== 第2部メッセージ制御 =====
-const noMsg = document.getElementById("noAppearanceMsg");
+  // ===== 第2部メッセージ制御 =====
+  const noMsg = document.getElementById("noAppearanceMsg");
 
-if (grade === "1" || grade === "2") {
-
-  // メッセージ表示
-  noMsg.classList.remove("hidden");
-
-} else {
-
-  // 3年はメッセージ消す
-  noMsg.classList.add("hidden");
-
-}
+  if (grade === "1" || grade === "2") {
+    // メッセージ表示
+    noMsg.classList.remove("hidden");
+  } else {
+    // 3年はメッセージ消す
+    noMsg.classList.add("hidden");
+  }
 
   // ===== 曲フィルタ =====
-  document.querySelectorAll(".song").forEach(song => {
-    song.style.display =
-      songs.includes(song.dataset.song) ? "block" : "none";
+  document.querySelectorAll(".song").forEach((song) => {
+    song.style.display = songs.includes(song.dataset.song) ? "block" : "none";
   });
 
   //ヒーロー部分書き換え
@@ -235,7 +227,6 @@ if (grade === "1" || grade === "2") {
 ================================ */
 
 document.getElementById("homeBtn").addEventListener("click", () => {
-
   document.querySelector('[data-target="graduation11"]').style.display = "";
 
   document.querySelectorAll(".song").forEach((song) => {
@@ -244,9 +235,9 @@ document.getElementById("homeBtn").addEventListener("click", () => {
 
   document.getElementById("hellow").textContent = "The 6th Annual Concert of";
   document.getElementById("heroTitle").textContent = "SHIENRAKU";
-  
+
   updateStar("SHIENRAKU");
-  
+
   document.getElementById("heroSub").innerHTML = `
     The Japanese Drum Club<br>
     of Kyushu Sangyo High School.
@@ -280,15 +271,20 @@ document.querySelectorAll(".grade-nav button").forEach((btn) => {
 
 // 要素取得（存在チェックつき）
 const historyBtn = document.getElementById("historyBtn");
-const homeBtn    = document.getElementById("homeBtn");
+const homeBtn = document.getElementById("homeBtn");
 
-const hero     = document.querySelector(".hero");
+const hero = document.querySelector(".hero");
 const tabsArea = document.querySelector(".tabs");
-const program  = document.querySelector(".program");
-const history  = document.getElementById("historySection");
+const program = document.querySelector(".program");
+const history = document.getElementById("historySection");
 
 console.log("診断:", {
-  historyBtn, homeBtn, hero, tabsArea, program, history
+  historyBtn,
+  homeBtn,
+  hero,
+  tabsArea,
+  program,
+  history,
 });
 
 // ===== HISTORYを開く =====
@@ -310,33 +306,31 @@ if (homeBtn) {
     hero.classList.remove("hidden");
     tabsArea.classList.remove("hidden");
     program.classList.remove("hidden");
-    
+
     // --- ① 第2部を元通り表示 ---
-  document.querySelector('[data-target="graduation11"]').style.display = "";
+    document.querySelector('[data-target="graduation11"]').style.display = "";
 
-  // --- ② すべての曲を表示 ---
-  document.querySelectorAll(".song").forEach((song) => {
-    song.style.display = "block";
-  });
+    // --- ② すべての曲を表示 ---
+    document.querySelectorAll(".song").forEach((song) => {
+      song.style.display = "block";
+    });
 
-  // --- ★★★ ここが今回の本命 ★★★ ---
-  const noMsg = document.getElementById("noAppearanceMsg");
-  if (noMsg) {
-    noMsg.classList.add("hidden");   // メッセージを消す！
-  }
-  // --- ★★★ ここまで ★★★ ---
+    // --- ★★★ ここが今回の本命 ★★★ ---
+    const noMsg = document.getElementById("noAppearanceMsg");
+    if (noMsg) {
+      noMsg.classList.add("hidden"); // メッセージを消す！
+    }
+    // --- ★★★ ここまで ★★★ ---
 
-  // --- ③ ヒーロー表示を初期に戻す ---
-  document.getElementById("hellow").textContent =
-    "The 6th Annual Concert of";
+    // --- ③ ヒーロー表示を初期に戻す ---
+    document.getElementById("hellow").textContent = "The 6th Annual Concert of";
 
-  document.getElementById("heroTitle").textContent =
-    "SHIENRAKU";
+    document.getElementById("heroTitle").textContent = "SHIENRAKU";
 
-  document.getElementById("heroSub").innerHTML = `
+    document.getElementById("heroSub").innerHTML = `
     The Japanese Drum Club<br>
     of Kyushu Sangyo High School.`;
-    
+
     updateStar("SHIENRAKU");
   });
 }
@@ -354,34 +348,35 @@ document.getElementById("openTerms").onclick = () =>
 
 document.getElementById("closeTerms").onclick = () =>
   document.getElementById("termsModal").classList.add("hidden");
-  
+
 /* ===============================
    OPENING（ボタン式）
 ================================ */
 
 document.addEventListener("DOMContentLoaded", () => {
-
   const opening = document.getElementById("opening");
   const openingImage = document.getElementById("openingImage");
+  openingImage.loading = "lazy";
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
   const helpBtn = document.querySelector(".icon");
 
   if (!opening) return;
 
-  const slides = ["https://i.postimg.cc/d1z39Yng/IMG-0029.jpg", "https://i.postimg.cc/15S5RMTP/IMG-0027.jpg", "https://i.postimg.cc/k48qqtvC/IMG-0030.jpg", "https://i.postimg.cc/1XshS7zd/IMG-0031.jpg"];
+  const slides = [
+    "https://i.postimg.cc/hGXr8g72/IMG-0167.webp",
+    "https://i.postimg.cc/x8BYC9H5/IMG-0166.webp",
+    "https://i.postimg.cc/5tpVzBLj/IMG-0165.webp",
+    "https://i.postimg.cc/LhdKSNFH/IMG-0164.webp",
+  ];
   let current = 0;
 
   function updateSlide() {
     openingImage.src = slides[current];
 
-    prevBtn.style.visibility =
-      current === 0 ? "hidden" : "visible";
+    prevBtn.style.visibility = current === 0 ? "hidden" : "visible";
 
-    nextBtn.textContent =
-      current === slides.length - 1
-        ? "ホームへ"
-        : "次へ →";
+    nextBtn.textContent = current === slides.length - 1 ? "ホームへ" : "次へ →";
   }
 
   prevBtn.addEventListener("click", () => {
@@ -419,27 +414,71 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const yearGalleryData = {
-  "2024": [
+  2021: [
+    "https://i.postimg.cc/B6ZyHtGR/IMG-0208.webp",
+    "https://i.postimg.cc/6Q6JLMrb/IMG-0210.webp",
+    "https://i.postimg.cc/nL5xFvmG/IMG-0299.webp",
+    "https://i.postimg.cc/Qdyw1jdR/IMG-0300.webp",
+    "https://i.postimg.cc/fyffKfjF/IMG-0209.webp",
+  ],
+
+  2022: [
+    "https://i.postimg.cc/ydPThTTk/IMG-0301.jpg",
+    "https://i.postimg.cc/fT6Y9FNw/IMG-0302.jpg",
+    "https://i.postimg.cc/fbbXnh7y/IMG-0303.jpg",
+    "https://i.postimg.cc/7h4Z438r/IMG-0304.webp",
+    "https://i.postimg.cc/bwSc6ZWs/IMG-0305.webp",
+    "https://i.postimg.cc/VNPTDDXg/IMG-0306.webp",
+    "https://i.postimg.cc/6q8Y9vdn/IMG-0307.webp",
+    "https://i.postimg.cc/sXXJchHT/IMG-0308.webp",
+    "https://i.postimg.cc/k40fg5ww/IMG-0310.webp",
+    "https://i.postimg.cc/5y5q9SX3/IMG-0311.webp",
+    "https://i.postimg.cc/MHtMrPcC/IMG-0312.webp",
+  ],
+
+  2023: [
+    "https://i.postimg.cc/fL1DWY66/IMG-0313.webp",
+    "https://i.postimg.cc/MGTSysxZ/IMG-0252.webp",
+    "https://i.postimg.cc/0NZTj7Jt/IMG-0249.webp",
+    "https://i.postimg.cc/FsmwyPgD/IMG-0314.webp",
+    "https://i.postimg.cc/BbCY70cd/IMG-0315.webp",
+    "https://i.postimg.cc/sXdTVXn2/IMG-0251.webp",
+    "https://i.postimg.cc/B642Y1Yf/IMG-0316.webp",
+    "https://i.postimg.cc/kX6RycJx/IMG-0317.webp",
+    "https://i.postimg.cc/2SYv8WYb/IMG-0318.webp",
+    "https://i.postimg.cc/mkxkpx2Y/IMG-0319.webp",
+    "https://i.postimg.cc/k5B5nM2F/IMG-0320.webp",
+  ],
+
+  2024: [
     "img/2024_1.jpg",
     "img/2024_2.jpg",
     "img/2024_3.jpg",
-    "img/2024_4.jpg"
+    "img/2024_4.jpg",
   ],
-  "2025": [
-    "img/2025_1.jpg",
-    "img/2025_2.jpg"
-  ]
+
+  2025: [
+    "img/2024_1.jpg",
+    "img/2024_2.jpg",
+    "img/2024_3.jpg",
+    "img/2024_4.jpg",
+  ],
+
+  2026: [
+    "https://i.postimg.cc/L8xSYkzg/IMG-0202.webp",
+    "https://i.postimg.cc/vBDyM4jp/IMG-0206.webp",
+  ],
 };
 
 const yearModal = document.getElementById("yearGalleryModal");
 const yearBox = document.getElementById("yearGalleryImages");
 
-document.querySelectorAll(".year-gallery-btn").forEach(btn => {
+document.querySelectorAll(".year-gallery-btn").forEach((btn) => {
   btn.addEventListener("click", () => {
     const year = btn.dataset.year;
     yearBox.innerHTML = "";
 
-    yearGalleryData[year].forEach(src => {
+    yearGalleryData[year].forEach((src) => {
       const img = document.createElement("img");
       img.src = src;
       img.loading = "lazy";
